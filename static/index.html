@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="static/pico.css">
-    <script src="static/zepto.js"></script>
+    <title>Links Manager</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/purecss@3.0.0/build/pure-min.css"
+        integrity="sha384-X38yfunGUhNzHpBaEBsWLO+A0HDYOQi8ufWDkZ0k9e0eXz/tH3II7uKZ9msv++Ls" crossorigin="anonymous">
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.7.1/jquery.js"></script>
     <script>
-        $(document).ready(function(){
+        $(document).ready(function () {
             $("#submit").click(() => {
                 var content = $("#links").val();
                 $.ajax({
@@ -15,10 +17,10 @@
                     url: '/admin',
                     data: JSON.stringify({ links: content }),
                     contentType: 'application/json',
-                    success:function(){
+                    success: function () {
                         alert("更新订阅成功！")
                     },
-                    error:function(){
+                    error: function () {
                         alert("更新订阅失败！")
                     }
                 })
@@ -26,21 +28,15 @@
         })
     </script>
 </head>
+
 <body>
-    <main class="container">
-        <fieldset>
-            <label for="links">
-                订阅链接:
-                <input type="textarea" 
-                    id="links" 
-                    name="links" 
-                    placeholder="vmess://..."
-                required>
-            </label>
+    <form class="pure-form">
+        <fieldset class="pure-group">
+            <textarea class="pure-input-1-2" id="links"></textarea>
         </fieldset>
-        <fieldset>
-            <button type="submit" id="submit">提交</button>
-        </fieldset>
-    </main>
+        <button id="submit" type="submit" class="pure-button pure-input-1-2 pure-button-primary">提交</button>
+    </form>
+
 </body>
+
 </html>

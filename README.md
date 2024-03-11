@@ -1,8 +1,14 @@
-# G_sublinks_manager
+# Xiaoyin Sublinks Manager
 
-**部署Web应用到8035端口**
+小尹订阅管理工具。
 
-```sh
-chmod +x deploy.sh
-sh deploy.sh
+## 构建镜像
+```
+docker build -t xiaoyin_sublinks_manager .
+```
+
+## 运行
+
+```
+docker run -d -p 80:80 xiaoyin_sublinks_manager
 ```
